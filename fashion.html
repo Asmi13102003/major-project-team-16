@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="button.css"> <!-- Assuming your CSS file is named "styles.css" -->
+    <link rel="stylesheet" href="fashion.css"> <!-- Link your product cards CSS file here -->
+</head>
+<body>
+    <div class="product-container">
+        <div class="product-image">
+            <!-- Loop through products data and display images -->
+            <img src="img/white-tshirt.jpg" alt="Product Image" onclick="updateProductDetails(0)">
+            <!-- Add more images with onclick event and increment the index -->
+            <!-- For example: -->
+            <!-- <img src="img/another-image.jpg" alt="Product Image" onclick="updateProductDetails(2)"> -->
+        </div>
+        <div class="product-actions">
+            <h1 id="product-title">Regular White T-Shirt</h1>
+            <p id="product-description">A women's white t-shirt is a classic wardrobe staple that offers versatility and timeless style...</p>
+            <p id="product-price">$30</p>
+
+            <a href="cart.html" class="add-to-cart-btn">Add to Cart</a> <!-- Modified line -->
+            <a href="cart.html" class="buy-now-btn">Buy Now</a> <!-- Modified line -->
+        </div>
+    </div>
+
+    <style>
+        .add-to-cart-btn, .buy-now-btn {
+            background-color: #4CAF50; /* Green background */
+            border: none;
+            color: white; /* White text */
+            padding: 10px 20px; /* Some padding */
+            text-align: center; /* Center text */
+            text-decoration: none; /* No underline */
+            display: inline-block; /* Make it into a block element to add padding and margin */
+            font-size: 16px; /* Increase font size */
+            margin-right: 10px; /* Add margin between buttons */
+        }
+    </style>
+
+    <script>
+        // JavaScript to update product details based on clicked image
+        const products = {
+            data: [{
+                productName: "Regular White T-Shirt",
+                category: "Fashion",
+                price: "$30",
+                description: "A women's white t-shirt is a classic wardrobe staple that offers versatility and timeless style...",
+                image: "img/white-tshirt.jpg",
+            },
+            {
+                productName: "Floral Print Dress",
+                category: "Fashion",
+                price: "$30",
+                description: "Description for Floral Print Dress...",
+                image: "img/card1.png",
+            },
+            // Add more products as needed
+            ]
+        };
+
+        function updateProductDetails(index) {
+            document.getElementById('product-title').innerText = products.data[index].productName;
+            document.getElementById('product-description').innerText = products.data[index].description;
+            document.getElementById('product-price').innerText = products.data[index].price;
+        }
+    </script>
+
+</body>
+</html>
